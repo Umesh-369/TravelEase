@@ -5,10 +5,10 @@
   <br /> <br />
 
   # ✈️ TravelEase
-  ### *Explore • Book • Travel — Next-Generation Travel & Hotel Booking Experience*
+  ### *Explore • Book • Travel — Next-Generation Travel & Hotel Booking Mobile Experience*
 
   <p align="center">
-    <strong>A high-performance, beautifully designed travel discovery and booking mobile application crafted with Flutter 3 and Material Design 3.</strong>
+    <strong>A high-performance, responsive cross-platform travel discovery and booking mobile application crafted with Flutter 3 and Material Design 3.</strong>
   </p>
 
   <p align="center">
@@ -16,14 +16,16 @@
     <a href="https://dart.dev"><img src="https://img.shields.io/badge/Dart-3.x-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge" alt="MIT License" /></a>
     <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web-f59e0b?style=for-the-badge" alt="Platforms" />
+    <img src="https://img.shields.io/badge/Architecture-Clean%20%26%20Modular-8b5cf6?style=for-the-badge" alt="Architecture" />
     <img src="https://img.shields.io/badge/PRs-Welcome-C6F52B?style=for-the-badge&labelColor=0F172A" alt="PRs Welcome" />
   </p>
 
   <p align="center">
-    <a href="#-features">Features</a> •
+    <a href="#-overview">Overview</a> •
     <a href="#-live-video-demo">Live Demo</a> •
-    <a href="#-screen-gallery">Screens</a> •
-    <a href="#-design-system--palette">Design System</a> •
+    <a href="#-core-features">Features</a> •
+    <a href="#-screen-showcase--ux-journey">Screen Showcase</a> •
+    <a href="#-design-system--tokens">Design System</a> •
     <a href="#-project-architecture">Architecture</a> •
     <a href="#-getting-started">Getting Started</a> •
     <a href="#-roadmap">Roadmap</a>
@@ -35,9 +37,15 @@
 
 ## 📖 Overview
 
-**TravelEase** transforms how travelers discover, plan, and book luxury getaways worldwide. Built from the ground up using **Flutter**, TravelEase combines high-frame-rate fluid animations, modern typography, and a tailored color palette featuring energetic electric lime accents (`#C6F52B`) paired with sleek dark obsidian surfaces (`#0F172A`).
+**TravelEase** redefines mobile travel booking by combining modern Scandinavian neo-minimalism with fluid mobile micro-interactions. Designed for discerning travelers seeking vacation villas, coastal escapes, and mountain retreats, the app bridges discovery and reservation into an effortless single-session workflow.
 
-From the immersive splash screen to effortless destination filtering, rich photo galleries, transparent price breakdown, and one-tap reservation confirmation with unique booking receipts—TravelEase delivers an exceptional user journey designed for modern mobile travelers.
+The user interface features a distinctive brand aesthetic: high-contrast **Electric Lime** (`#C6F52B`) accenting deep **Dark Obsidian** (`#0F172A`) surfaces, soft elevated cards, and intuitive touch targets. Every screen is engineered with modular Flutter widgets, reactive state transitions, and responsive layout constraints for smartphones, tablets, and web.
+
+### 🌟 Brand Pillars
+* 📍 **Discover Amazing Places** — Curated global retreats with verified traveler ratings and comprehensive amenities.
+* 🛡️ **Safe & Secure Bookings** — End-to-end transparent checkout with immediate reservation reference vouchers.
+* ⭐ **Best Prices & Deals** — Exclusive flash sales with real-time countdown tickers and instant price calculations.
+* 💙 **Your Journey, Our Priority** — Centralized traveler hub with booking histories, wishlists, and customized preferences.
 
 ---
 
@@ -49,11 +57,11 @@ Experience TravelEase in motion. Watch the seamless discovery, dynamic multi-att
 
   <table>
     <tr>
-      <th align="center">🎥 Full HD Video Walkthrough</th>
-      <th align="center">⚡ Quick Animated Preview</th>
+      <th align="center" width="55%">🎥 Full HD Video Walkthrough</th>
+      <th align="center" width="45%">⚡ Quick Animated Preview</th>
     </tr>
     <tr>
-      <td align="center" width="55%">
+      <td align="center">
         <video src="assets/Demo.mp4" controls width="100%" style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
           Your browser does not support the video tag.
         </video>
@@ -62,7 +70,7 @@ Experience TravelEase in motion. Watch the seamless discovery, dynamic multi-att
           <img src="https://img.shields.io/badge/▶_Download_/_Watch_HD_Video-Demo.mp4-0F172A?style=for-the-badge&logoColor=C6F52B" alt="Watch Demo Video" />
         </a>
       </td>
-      <td align="center" width="45%">
+      <td align="center">
         <img src="assets/demo_preview.gif" alt="TravelEase Walkthrough GIF" width="100%" style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);" />
         <br /><br />
         <em>Real-time in-app interactions & transitions</em>
@@ -74,123 +82,117 @@ Experience TravelEase in motion. Watch the seamless discovery, dynamic multi-att
 
 ---
 
-## 🌟 Core Features
+## ✨ Core Features
 
-| Feature | Description | Highlight |
+```mermaid
+flowchart LR
+    A[🚀 Splash Experience] --> B[🏠 Home Discovery Feed]
+    B --> C[🔍 Multi-Filter Engine]
+    B --> D[🏨 Hotel Deep-Dive]
+    C --> D
+    D --> E[📅 Room Selection & Checkout]
+    E --> F[🎉 Verified Booking Voucher]
+    F --> B
+```
+
+- **🏝️ Curated Accommodations & Exotic Stays**  
+  Browse handpicked premium villas, luxury beach resorts, and mountain sanctuaries accompanied by high-resolution multi-photo carousels and authentic traveler ratings.
+- **⚡ Real-Time Flash Deals & Countdown Timers**  
+  Special promotional offerings discounted up to 50% with an active live ticking countdown timer (`02:45:38`) creating authentic booking momentum.
+- **🔍 Advanced Multi-Parameter Search & Discovery**  
+  Filter stays smoothly with category pills (*Beach, Mountain, Luxury*), an interactive continuous price range slider (`$50 - $500+`), rating thresholds (*All, 4+, 4.5+, 5★*), facility tags (*Pool, WiFi, Ocean View, Breakfast, Spa*), and proximity distance toggles.
+- **🏨 Granular Property & Room Specifications**  
+  Detailed property profile featuring room area (`32 m²`), bed configurations (`1 King Bed`), maximum guest capacities, and full facility grids (*Gym, Parking, Restaurant, Spa*).
+- **💳 Transparent Pricing & Instant Checkout**  
+  Live itemized price calculations combining nightly base rates, room counts, duration, and applicable taxes & fees with zero hidden surprises.
+- **🧾 Instant Reservation Confirmation & Receipt Voucher**  
+  Generates an interactive booking confirmation card with a unique reservation ID (`#TE123456789`), one-click clipboard copying, and direct route reset to the home feed.
+- **👤 Traveler Profile & Dashboard**  
+  Personalized account hub tracking total bookings, saved favorites, traveler rating, payment methods, notifications, and security preferences.
+
+---
+
+## 📱 Screen Showcase & UX Journey
+
+| Screen | Key Highlights | Core Components |
 | :--- | :--- | :--- |
-| 🏝️ **Curated Stays** | Handpicked luxury villas, beach resorts, and mountain hideaways. | High-res imagery & verified review scores |
-| ⚡ **Flash Deals** | Exclusive, time-limited discounts up to 50% off with live countdown timer. | Dynamic live ticker `02:45:38` |
-| 🔍 **Smart Multi-Param Filter** | Granular filtering by category (Beach, Mountain, Luxury), price slider, and stars. | Interactive `$50 - $500+` slider |
-| 🛎️ **Facility Checklists** | Quickly filter and inspect amenities including WiFi, Pool, Spa, Breakfast, and Ocean View. | Multi-select chips & facility icons |
-| 🛏️ **Room Selection & Specs** | Detailed room cards showing king/queen bed configurations, max occupancy, and area. | Dimension & guest capacity tags |
-| 💳 **Transparent Checkout** | Clear calculation of nightly rates, local taxes, and service fees with no surprises. | Itemized summary table |
-| 🧾 **Instant Confirmation** | Generates verifiable booking credentials with one-tap clipboard copy. | Unique reference `#TE123456789` |
-| 👤 **Traveler Hub** | Complete personal profile displaying bookings history, wishlist, and account settings. | Multi-tab traveler metrics |
+| **1. Splash Screen** | Full-bleed tropical paradise photography, brand badge, and inviting call to exploration. | Custom fade animation, branded logo widget, start CTA |
+| **2. Home Screen** | Personalized greeting (`Hello, Albert 👋`), quick search bar, category filter pills, recommended hotel card, and flash deals carousel. | `SearchBarWidget`, `CategoryChip`, `HotelCard`, `FlashDealCard` |
+| **3. Search & Filter Screen** | Granular multi-factor filtering engine with real-time matching counter (`Show 245 Places`). | Continuous price range slider, rating chips, facility checklist |
+| **4. Hotel Details Screen** | High-res carousel (`1/5`), price header (`$220/night`), expandable property summary, and complete amenities grid. | PageView carousel, rating badges, facility chips, lime `Book Now` button |
+| **5. Booking Screen** | Check-in / check-out dates selector, guest headcount controller, room tier selector, and itemized billing summary. | Date selector chips, counter widget, transparent price breakdown |
+| **6. Confirmation Screen** | Celebratory success badge, generated booking reference `#TE123456789`, copy action, and trip summary. | Animated checkmark, copyable voucher card, navigation reset button |
+| **7. Profile Screen** | User identity, summary stats (3 Bookings, 2 Favorites, 4.8 Rating), and interactive navigation menus. | Circular avatar, metric stat cards, navigation menu list tiles |
 
 ---
 
-## 📱 Screen Gallery
+## 🎨 Design System & Tokens
 
-The application includes seven bespoke screens designed with consistent design tokens and micro-interactions:
+TravelEase adheres to a tailored design language optimized for high readability, modern elegance, and smooth touch interactions:
 
-```
-┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐
-│  Splash Screen  │──>│   Home Screen   │──>│ Search & Filter │──>│  Hotel Details  │
-└─────────────────┘   └─────────────────┘   └─────────────────┘   └─────────────────┘
-                                                       │
-                                                       ▼
-┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐
-│ Profile Screen  │<──│Confirmation Page│<──│ Booking Screen  │
-└─────────────────┘   └─────────────────┘   └─────────────────┘
-```
+### Color Palette
 
-1. **Splash Screen**
-   - High-impact tropical resort backdrop with wooden pier and ocean vistas.
-   - Distinctive TravelEase flight insignia and welcoming value proposition.
-2. **Home Screen**
-   - Personalized traveler greeting (`Hello, Albert 👋`).
-   - Quick category pills: **Hotels**, **Flights**, and **Rental Cars**.
-   - Featured recommended spotlight (`Bali Exotica` at `$220/night`, 4.8 ★).
-   - Horizontal flash deals slider with active discount timer.
-3. **Search & Filter Screen**
-   - Destination categories: **Beach**, **Mountain**, **Luxury**.
-   - Smooth continuous dual-range price slider from `$50` to `$500+`.
-   - Rating filter pills (`All`, `4+`, `4.5+`, `5★`) and amenity checklists.
-   - Distance toggle with reactive counter button (`Show 245 Places`).
-4. **Hotel Details Screen**
-   - Edge-to-edge photo carousel with page indicators (`1/5`) and favorite toggle.
-   - Property specs, pricing, and expansive description.
-   - Amenities grid: *Pool, WiFi, Ocean View, Breakfast, Spa, Gym, Parking, Restaurant*.
-   - Prominent bottom action bar with lime CTA button (`Book Now`).
-5. **Booking Screen**
-   - Summary card of chosen property with check-in and check-out dates.
-   - Guest headcount adjustment (e.g., `2 Adults, 1 Child`).
-   - Room configuration selection (e.g., `Deluxe Room`, `32 m²`, `1 King Bed`).
-   - Transparent price calculation (Room: `$1,100`, Taxes: `$220`, Total: `$1,320`).
-6. **Booking Confirmation Screen**
-   - Animated emerald success checkmark banner.
-   - Unique generated reservation identifier `#TE123456789` with copy-to-clipboard action.
-   - Quick itinerary snapshot and direct navigation back to home.
-7. **Profile Screen**
-   - User identity header with customizable avatar and email.
-   - Metric cards: **3 Bookings**, **2 Favorites**, **4.8 Rating**.
-   - Navigation options for *My Bookings, Favorites, Payment Methods, Notifications, Settings*.
-
----
-
-## 🎨 Design System & Palette
-
-TravelEase utilizes a custom design language combining high-contrast lime highlights with deep slate tones for readability and modern visual appeal:
-
-| Token Name | Hex Code | Preview | Role / Application |
+| Token Name | Hex Code | Swatch | Application |
 | :--- | :---: | :---: | :--- |
-| **Primary Lime** | `#C6F52B` | ![#C6F52B](https://via.placeholder.com/15/C6F52B/000000?text=+) | Primary action buttons, badges, active states |
-| **Lime Accent Dark** | `#AEDC1C` | ![#AEDC1C](https://via.placeholder.com/15/AEDC1C/000000?text=+) | Pressed states, borders, subtle contrasts |
-| **Dark Navy / Obsidian** | `#0F172A` | ![#0F172A](https://via.placeholder.com/15/0F172A/000000?text=+) | Primary headings, filter buttons, icons |
-| **Muted Slate** | `#64748B` | ![#64748B](https://via.placeholder.com/15/64748B/000000?text=+) | Subtitles, helper text, inactive navigation |
-| **Background Light** | `#F8FAFC` | ![#F8FAFC](https://via.placeholder.com/15/F8FAFC/000000?text=+) | Main scaffold background color |
-| **Card Surface** | `#FFFFFF` | ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) | Card surfaces, modals, elevated sheets |
-| **Star Gold** | `#F59E0B` | ![#F59E0B](https://via.placeholder.com/15/F59E0B/000000?text=+) | Star ratings & review scores |
-| **Discount Red** | `#EF4444` | ![#EF4444](https://via.placeholder.com/15/EF4444/000000?text=+) | Flash deal tags and promotional counters |
+| **Primary Lime** | `#C6F52B` | `██████` | Primary CTA buttons, active chips, promotional badges |
+| **Lime Accent Dark** | `#AEDC1C` | `██████` | Pressed states, active borders, contrast highlights |
+| **Dark Obsidian** | `#0F172A` | `██████` | Primary typography, filter buttons, active nav icons |
+| **Muted Slate** | `#64748B` | `██████` | Subheadings, secondary labels, inactive nav items |
+| **Border Light** | `#E2E8F0` | `██████` | Card borders, dividers, chip outlines |
+| **Background Light** | `#F8FAFC` | `██████` | Scaffold canvas background |
+| **Surface Card** | `#FFFFFF` | `██████` | Elevated card surfaces, modal sheets |
+| **Star Gold** | `#F59E0B` | `██████` | Star rating indicators and review scores |
+| **Flash Discount Red** | `#EF4444` | `██████` | Promotional deal tags, countdown timers |
+
+### Elevation & Shadows
+- **Card Shadow:** `Offset(0, 6)`, Blur `16px`, Color `rgba(0, 0, 0, 0.06)`
+- **Floating Shadow:** `Offset(0, 8)`, Blur `24px`, Color `rgba(0, 0, 0, 0.12)`
 
 ---
 
 ## 🏗️ Project Architecture
 
-The codebase adheres to a modular component architecture separating presentation, domain models, and data:
+The project follows a clean, decoupled component architecture:
 
 ```
 travelease/
 ├── assets/
-│   ├── Demo.mp4                  # Full HD application walkthrough video
-│   ├── demo_preview.gif          # High-speed animated preview GIF
+│   ├── Demo.mp4                  # Full HD app walkthrough video
+│   ├── demo_preview.gif          # Optimized animated preview GIF
 │   ├── showcase.jpg              # Master multi-screen hero banner
-│   └── images/                   # High-resolution property & landscape assets
+│   └── images/                   # Curated hotel and destination assets
+│       ├── bali_exotica.jpg
+│       ├── beach_dest.jpg
+│       ├── flash_deal_hotel.jpg
+│       ├── hotel_room.jpg
+│       ├── mountain_dest.jpg
+│       ├── profile_avatar.jpg
+│       └── splash_resort.jpg
 ├── lib/
-│   ├── main.dart                 # Application entry point & route definitions
+│   ├── main.dart                 # App initialization & onGenerateRoute navigation
 │   ├── data/
-│   │   └── mock_data.dart        # Mock hotels, offers, and amenity dataset
+│   │   └── mock_data.dart        # Seed mock dataset for hotels, deals & facilities
 │   ├── models/
-│   │   └── hotel_model.dart      # Strongly-typed data models (Hotel, Room)
+│   │   └── hotel_model.dart      # Domain models: Hotel, Room, Review, Amenity
 │   ├── screens/
-│   │   ├── splash_screen.dart           # Animated splash screen
-│   │   ├── main_navigation_screen.dart  # Bottom navigation coordinator
-│   │   ├── home_screen.dart             # Discovery feed & flash deals
-│   │   ├── search_screen.dart           # Search & multi-parameter filter
-│   │   ├── hotel_details_screen.dart    # Property specs & photo gallery
-│   │   ├── booking_screen.dart          # Room selection & checkout details
-│   │   ├── confirmation_screen.dart     # Reservation success voucher
-│   │   └── profile_screen.dart          # Traveler profile & booking history
+│   │   ├── splash_screen.dart           # Immersive landing screen
+│   │   ├── main_navigation_screen.dart  # IndexedStack bottom nav host
+│   │   ├── home_screen.dart             # Discovery feed & deals
+│   │   ├── search_screen.dart           # Multi-attribute filter & search
+│   │   ├── hotel_details_screen.dart    # Property specs & photo slider
+│   │   ├── booking_screen.dart          # Dates, room config & billing
+│   │   ├── confirmation_screen.dart     # Reservation voucher & booking code
+│   │   └── profile_screen.dart          # Traveler profile & preferences
 │   ├── theme/
-│   │   └── app_theme.dart        # Design tokens, color scheme, elevation
+│   │   └── app_theme.dart        # Design tokens, palette, ThemeData
 │   └── widgets/
-│       ├── category_chip.dart    # Filter and category selection chip
-│       ├── custom_bottom_nav.dart# Curved navigation bar
-│       ├── custom_button.dart    # Styled pill buttons with ripple feedback
-│       ├── flash_deal_card.dart  # Promotional deal card with timer
-│       ├── hotel_card.dart       # Recommendation & search result card
-│       └── search_bar.dart       # Search input with quick filter trigger
-└── pubspec.yaml                  # Project dependencies & asset declarations
+│       ├── category_chip.dart    # Pill category filter widget
+│       ├── custom_bottom_nav.dart# Floating curved navigation bar
+│       ├── custom_button.dart    # Electric lime and dark CTA buttons
+│       ├── flash_deal_card.dart  # Deal card with live countdown
+│       ├── hotel_card.dart       # Recommendation & search card
+│       └── search_bar.dart       # Search bar with filter action trigger
+└── pubspec.yaml                  # Flutter dependencies & asset manifest
 ```
 
 ---
@@ -199,63 +201,77 @@ travelease/
 
 ### Prerequisites
 
-Ensure you have the following installed on your machine:
-* [Flutter SDK](https://docs.flutter.dev/get-started/install) (`^3.12.2` or later)
+Ensure you have the following installed on your development workstation:
+* [Flutter SDK](https://docs.flutter.dev/get-started/install) (`>=3.12.2`)
 * [Dart SDK](https://dart.dev/get-dart)
-* [Android Studio](https://developer.android.com/studio) / [VS Code](https://code.visualstudio.com/) with Flutter extension
-* Android Emulator / iOS Simulator / Physical Device
+* [Android Studio](https://developer.android.com/studio) / [VS Code](https://code.visualstudio.com/) with the Flutter extension
+* Android Emulator / iOS Simulator / Physical device
 
-### Installation
+### Installation & Run
 
-1. **Clone the Repository**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Umesh-369/TravelEase.git
    cd TravelEase
    ```
 
-2. **Install Dependencies**
+2. **Install Flutter dependencies:**
    ```bash
    flutter pub get
    ```
 
-3. **Verify Flutter Setup**
+3. **Verify environment health:**
    ```bash
    flutter doctor
    ```
 
-4. **Run the Application**
+4. **Launch the app:**
    ```bash
-   # Run on connected default device
+   # Launch on any connected default device
    flutter run
 
-   # Or run on specific platforms
-   flutter run -d chrome        # Web
-   flutter run -d android       # Android
-   flutter run -d ios           # iOS
+   # Or target specific platforms
+   flutter run -d chrome        # Web preview
+   flutter run -d android       # Android device/emulator
+   flutter run -d ios           # iOS simulator/device
    ```
+
+---
+
+## 🧪 Testing & Code Quality
+
+Run tests and static analysis:
+
+```bash
+# Run widget and unit tests
+flutter test
+
+# Run Dart static analyzer
+flutter analyze
+```
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Immersive Splash screen with custom branding
-- [x] Dynamic Home feed with categories & flash deals
-- [x] Multi-criteria search and price range filters
-- [x] Hotel details with photo carousels & amenities
-- [x] Comprehensive room selection and price summary
-- [x] Instant booking confirmation with reference ID
-- [x] Traveler profile dashboard
-- [ ] Integration with real-time Booking/Hotel APIs (Amadeus / Booking.com)
+- [x] Immersive Splash screen with brand identity
+- [x] Dynamic Home feed with categories and flash sales
+- [x] Multi-parameter search with price slider & facility chips
+- [x] Hotel details with image carousels & amenities
+- [x] Room tier selection and transparent billing summary
+- [x] Instant booking confirmation with reference voucher
+- [x] Traveler profile dashboard and metrics
+- [ ] Integration with live Hotel & Booking APIs (Amadeus / Booking.com)
 - [ ] Payment gateway integration (Stripe, Apple Pay, Google Pay)
-- [ ] Flight and rental car search modules
-- [ ] Dark theme support with automatic system toggle
-- [ ] Multi-language localization (i18n)
+- [ ] Flights and car rentals booking engine
+- [ ] Dark theme mode with automatic system toggle
+- [ ] Multi-currency and multi-language localization (i18n)
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, feedback, and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -267,7 +283,7 @@ Contributions, feedback, and feature requests are welcome!
 
 ## 📄 License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for complete details.
 
 ---
 
