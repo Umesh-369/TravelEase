@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/showcase.jpg" alt="TravelEase Showcase Banner" width="100%" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.18);" />
+  <img src="assets/showcase.png" alt="TravelEase Showcase Banner" width="100%" style="border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.18);" />
 
   <br /> <br />
 
@@ -57,23 +57,23 @@ Experience TravelEase in motion. Watch the seamless discovery, dynamic multi-att
 
   <table>
     <tr>
-      <th align="center" width="55%">🎥 Full HD Video Walkthrough</th>
-      <th align="center" width="45%">⚡ Quick Animated Preview</th>
+      <th align="center" width="50%">🎥 Enhanced HD Walkthrough</th>
+      <th align="center" width="50%">⚡ Quick Animated Preview</th>
     </tr>
     <tr>
-      <td align="center">
-        <video src="assets/Demo.mp4" controls width="100%" style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+      <td align="center" valign="top">
+        <video src="assets/Demo.mp4" controls width="320" style="border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.18);">
           Your browser does not support the video tag.
         </video>
         <br /><br />
-        <a href="assets/Demo.mp4">
-          <img src="https://img.shields.io/badge/▶_Download_/_Watch_HD_Video-Demo.mp4-0F172A?style=for-the-badge&logoColor=C6F52B" alt="Watch Demo Video" />
+        <a href="https://github.com/Umesh-369/TravelEase/raw/main/assets/Demo.mp4">
+          <img src="https://img.shields.io/badge/▶_Stream_/_Download_1080p_HD_Video-Demo.mp4-0F172A?style=for-the-badge&logoColor=C6F52B" alt="Watch HD Demo Video" />
         </a>
       </td>
-      <td align="center">
-        <img src="assets/demo_preview.gif" alt="TravelEase Walkthrough GIF" width="100%" style="border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);" />
+      <td align="center" valign="top">
+        <img src="assets/demo_preview.gif" alt="TravelEase App Walkthrough" width="320" style="border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.18);" />
         <br /><br />
-        <em>Real-time in-app interactions & transitions</em>
+        <em>⚡ Real-time 60fps in-app transitions & discovery flow</em>
       </td>
     </tr>
   </table>
