@@ -103,7 +103,7 @@ class FlashDealCard extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        '\$${hotel.pricePerNight.toInt()}',
+                        '₹${hotel.pricePerNight.toInt()}',
                         style: const TextStyle(
                           color: AppTheme.textDark,
                           fontSize: 16,

@@ -14,6 +14,9 @@ class AppTheme {
   static const Color discountRed = Color(0xFFEF4444);
   static const Color borderLight = Color(0xFFE2E8F0);
 
+  // Currency
+  static const String currencySymbol = '₹';
+
   // Soft Shadows
   static final List<BoxShadow> cardShadow = [
     BoxShadow(
