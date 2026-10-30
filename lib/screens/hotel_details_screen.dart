@@ -380,7 +380,7 @@ class _HotelDetailsScreenState extends State<HotelDetailsScreen> {
                           textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text(
-                              '\$${_hotel.pricePerNight.toInt()}',
+                              '₹${_hotel.pricePerNight.toInt()}',
                               style: const TextStyle(
                                 color: AppTheme.textDark,
                                 fontSize: 26,

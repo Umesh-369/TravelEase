@@ -17,7 +17,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _searchController = TextEditingController();
   int _selectedCategoryIndex = 0;
-  RangeValues _priceRange = const RangeValues(50, 500);
+  RangeValues _priceRange = const RangeValues(1000, 6000);
   int _selectedRatingIndex = 0;
   bool _distanceSwitch = true;
   String _selectedDistance = 'Any Distance';
@@ -53,7 +53,7 @@ class _SearchScreenState extends State<SearchScreen> {
       _searchController.clear();
       _searchQuery = '';
       _selectedCategoryIndex = 0;
-      _priceRange = const RangeValues(50, 500);
+      _priceRange = const RangeValues(1000, 6000);
       _selectedRatingIndex = 0;
       _distanceSwitch = true;
       _selectedDistance = 'Any Distance';
@@ -314,23 +314,30 @@ class _SearchScreenState extends State<SearchScreen> {
                   const SizedBox(height: 20),
 
                   // Category Filters
-                  Row(
-                    children: List.generate(_categories.length, (index) {
-                      final item = _categories[index];
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 8),
-                        child: CategoryChip(
-                          label: item['label'],
-                          icon: item['icon'],
-                          isSelected: _selectedCategoryIndex == index,
-                          onTap: () {
-                            setState(() {
-                              _selectedCategoryIndex = index;
-                            });
-                          },
-                        ),
-                      );
-                    }),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    clipBehavior: Clip.none,
+                    child: Row(
+                      children: List.generate(_categories.length, (index) {
+                        final item = _categories[index];
+                        return Padding(
+                          padding: EdgeInsets.only(
+                            right: index == _categories.length - 1 ? 0 : 8,
+                          ),
+                          child: CategoryChip(
+                            label: item['label'],
+                            icon: item['icon'],
+                            isSelected: _selectedCategoryIndex == index,
+                            onTap: () {
+                              setState(() {
+                                _selectedCategoryIndex = index;
+                              });
+                            },
+                          ),
+                        );
+                      }),
+                    ),
                   ),
 
                   const SizedBox(height: 28),
@@ -348,7 +355,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                       ),
                       Text(
-                        '\$${_priceRange.start.round()} - \$${_priceRange.end.round()}',
+                        '₹${_priceRange.start.round()} - ₹${_priceRange.end.round()}',
                         style: const TextStyle(
                           color: AppTheme.textMuted,
                           fontSize: 14,
@@ -375,7 +382,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: RangeSlider(
                       values: _priceRange,
                       min: 0,
-                      max: 1000,
+                      max: 10000,
                       onChanged: (values) {
                         setState(() {
                           _priceRange = values;
@@ -387,14 +394,14 @@ class _SearchScreenState extends State<SearchScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$0',
+                        '₹0',
                         style: TextStyle(
                           color: Colors.grey.shade500,
                           fontSize: 12,
                         ),
                       ),
                       Text(
-                        '\$1,000+',
+                        '₹10,000+',
                         style: TextStyle(
                           color: Colors.grey.shade500,
                           fontSize: 12,

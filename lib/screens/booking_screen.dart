@@ -506,14 +506,19 @@ class _BookingScreenState extends State<BookingScreen> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        room['name'] as String,
-                                        style: const TextStyle(
-                                          color: AppTheme.textDark,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w700,
+                                      Expanded(
+                                        child: Text(
+                                          room['name'] as String,
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                          style: const TextStyle(
+                                            color: AppTheme.textDark,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w700,
+                                          ),
                                         ),
                                       ),
+                                      const SizedBox(width: 8),
                                       Container(
                                         width: 20,
                                         height: 20,
@@ -545,7 +550,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        '\$$roomRate',
+                                        '₹$roomRate',
                                         style: const TextStyle(
                                           color: AppTheme.textDark,
                                           fontSize: 14,
@@ -603,12 +608,12 @@ class _BookingScreenState extends State<BookingScreen> {
                     children: [
                       _buildPriceRow(
                         'Room Price ($_numberOfNights nights x $_roomCount room)',
-                        '\$${_subtotal.round()}',
+                        '₹${_subtotal.round()}',
                       ),
                       const SizedBox(height: 10),
                       _buildPriceRow(
                         'Taxes & Service Fees (12%)',
-                        '\$${_taxesAndFees.round()}',
+                        '₹${_taxesAndFees.round()}',
                       ),
                       const Divider(height: 24, thickness: 0.8),
                       Row(
@@ -623,7 +628,7 @@ class _BookingScreenState extends State<BookingScreen> {
                             ),
                           ),
                           Text(
-                            '\$${_grandTotal.round()}',
+                            '₹${_grandTotal.round()}',
                             style: const TextStyle(
                               color: Color(0xFF7CB800),
                               fontSize: 22,
@@ -661,7 +666,7 @@ class _BookingScreenState extends State<BookingScreen> {
               child: SafeArea(
                 top: false,
                 child: CustomButton(
-                  text: 'Proceed to Pay • \$${_grandTotal.round()}',
+                  text: 'Proceed to Pay • ₹${_grandTotal.round()}',
                   onPressed: () {
                     Navigator.of(context).pushNamed(
                       '/confirmation',
@@ -686,40 +691,49 @@ class _BookingScreenState extends State<BookingScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 20, color: AppTheme.textMuted),
-              const SizedBox(width: 10),
+              Icon(icon, size: 18, color: AppTheme.textMuted),
+              const SizedBox(width: 8),
               Text(
                 label,
                 style: const TextStyle(
                   color: AppTheme.textMuted,
-                  fontSize: 14,
+                  fontSize: 13,
                 ),
               ),
             ],
           ),
-          Row(
-            children: [
-              Text(
-                value,
-                style: const TextStyle(
-                  color: AppTheme.textDark,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
+          const SizedBox(width: 8),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Flexible(
+                  child: Text(
+                    value,
+                    textAlign: TextAlign.end,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: const TextStyle(
+                      color: AppTheme.textDark,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
-              ),
-              if (isEditable) ...[
-                const SizedBox(width: 4),
-                const Icon(
-                  Icons.edit_calendar_rounded,
-                  size: 15,
-                  color: AppTheme.textLight,
-                ),
+                if (isEditable) ...[
+                  const SizedBox(width: 4),
+                  const Icon(
+                    Icons.edit_calendar_rounded,
+                    size: 15,
+                    color: AppTheme.textLight,
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
         ],
       ),
@@ -730,13 +744,16 @@ class _BookingScreenState extends State<BookingScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          label,
-          style: const TextStyle(
-            color: AppTheme.textMuted,
-            fontSize: 14,
+        Expanded(
+          child: Text(
+            label,
+            style: const TextStyle(
+              color: AppTheme.textMuted,
+              fontSize: 14,
+            ),
           ),
         ),
+        const SizedBox(width: 8),
         Text(
           value,
           style: const TextStyle(

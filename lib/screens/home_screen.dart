@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
     },
     {
       'title': 'Promo Code Unlocked 🎟️',
-      'body': 'Use code "SUMMER26" to claim \$50 off on next booking.',
+      'body': 'Use code "SUMMER26" to claim ₹500 off on next booking.',
       'time': '1d ago',
     },
   ];
@@ -293,63 +293,72 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: () {
-                      if (widget.onProfileTap != null) {
-                        widget.onProfileTap!();
-                      } else {
-                        Navigator.of(context).pushNamed(
-                          '/main',
-                          arguments: 3,
-                        );
-                      }
-                    },
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(24),
-                          child: Image.asset(
-                            'assets/images/profile_avatar.jpg',
-                            width: 44,
-                            height: 44,
-                            fit: BoxFit.cover,
+                  Expanded(
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        if (widget.onProfileTap != null) {
+                          widget.onProfileTap!();
+                        } else {
+                          Navigator.of(context).pushNamed(
+                            '/main',
+                            arguments: 3,
+                          );
+                        }
+                      },
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(24),
+                            child: Image.asset(
+                              'assets/images/profile_avatar.jpg',
+                              width: 44,
+                              height: 44,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 12),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: const [
-                                Text(
-                                  'Hello, Albert ',
-                                  style: TextStyle(
-                                    color: AppTheme.textDark,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: const [
+                                    Flexible(
+                                      child: Text(
+                                        'Hello, Albert ',
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: AppTheme.textDark,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      '👋',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  '👋',
-                                  style: TextStyle(fontSize: 16),
+                                const SizedBox(height: 2),
+                                const Text(
+                                  "Let's choose your next journey",
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    color: AppTheme.textMuted,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 2),
-                            const Text(
-                              "Let's choose your next journey",
-                              style: TextStyle(
-                                color: AppTheme.textMuted,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
+                  const SizedBox(width: 12),
 
                   // Notification Bell Button
                   GestureDetector(
@@ -461,25 +470,32 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
 
               // Category Pills Horizontal Row
-              Row(
-                children: List.generate(
-                  _categories.length,
-                  (index) {
-                    final category = _categories[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: CategoryChip(
-                        label: category['label'],
-                        icon: category['icon'],
-                        isSelected: _selectedCategoryIndex == index,
-                        onTap: () {
-                          setState(() {
-                            _selectedCategoryIndex = index;
-                          });
-                        },
-                      ),
-                    );
-                  },
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                clipBehavior: Clip.none,
+                child: Row(
+                  children: List.generate(
+                    _categories.length,
+                    (index) {
+                      final category = _categories[index];
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          right: index == _categories.length - 1 ? 0 : 10,
+                        ),
+                        child: CategoryChip(
+                          label: category['label'],
+                          icon: category['icon'],
+                          isSelected: _selectedCategoryIndex == index,
+                          onTap: () {
+                            setState(() {
+                              _selectedCategoryIndex = index;
+                            });
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
 
@@ -543,7 +559,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
-                            'From \$380 / person',
+                            'From ₹4,500 / person',
                             style: TextStyle(
                               color: AppTheme.textDark,
                               fontSize: 16,
@@ -632,7 +648,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
-                            'From \$45 / day',
+                            'From ₹1,200 / day',
                             style: TextStyle(
                               color: AppTheme.textDark,
                               fontSize: 16,
@@ -670,14 +686,18 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Recommended',
-                    style: TextStyle(
-                      color: AppTheme.textDark,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
+                  const Flexible(
+                    child: Text(
+                      'Recommended',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: AppTheme.textDark,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
+                  const SizedBox(width: 8),
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
                     onTap: () {
@@ -718,14 +738,18 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Flash Deals',
-                    style: TextStyle(
-                      color: AppTheme.textDark,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
+                  const Flexible(
+                    child: Text(
+                      'Flash Deals',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: AppTheme.textDark,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
+                  const SizedBox(width: 8),
                   // Red Countdown Badge
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,

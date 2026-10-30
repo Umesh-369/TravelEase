@@ -6,6 +6,7 @@ import 'package:travelease/screens/search_screen.dart';
 import 'package:travelease/screens/booking_screen.dart';
 import 'package:travelease/screens/profile_screen.dart';
 import 'package:travelease/theme/app_theme.dart';
+import 'package:travelease/data/mock_data.dart';
 
 void main() {
   setUp(() {
@@ -195,5 +196,60 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Bali Exotica Resort'), findsOneWidget);
+  });
+
+  testWidgets('HomeScreen renders on narrow viewport without overflow and displays INR currency',
+      (WidgetTester tester) async {
+    // Narrow 360 x 800 phone screen (typical mobile screen that previously overflowed by 21px)
+    tester.view.physicalSize = const Size(360, 800);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.themeData,
+        home: const HomeScreen(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    // Verify all categories render
+    expect(find.text('Hotels'), findsOneWidget);
+    expect(find.text('Flights'), findsOneWidget);
+    expect(find.text('Rental Car'), findsOneWidget);
+
+    // Verify Indian Rupee symbol is displayed on hotel cards and flash deals
+    expect(find.textContaining('₹2500'), findsOneWidget);
+    expect(find.textContaining('₹1800'), findsOneWidget);
+
+    // Verify no RenderFlex overflow exceptions occurred during render
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets(
+      'BookingScreen renders on narrow viewport without overflow and displays updated INR prices',
+      (WidgetTester tester) async {
+    // Narrow 360 x 800 phone screen (typical mobile screen that had 9.8px overflow)
+    tester.view.physicalSize = const Size(360, 800);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.themeData,
+        home: BookingScreen(hotel: MockData.recommendedHotels[1]),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Booking Details'), findsOneWidget);
+    expect(find.text('Alpine Crest Villa'), findsOneWidget);
+    expect(find.text('Guests & Rooms'), findsOneWidget);
+    expect(find.textContaining('2 Adults, 1 Child'), findsOneWidget);
+    expect(find.textContaining('₹3500'), findsOneWidget);
+
+    expect(tester.takeException(), isNull);
   });
 }

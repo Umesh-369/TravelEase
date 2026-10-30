@@ -19,7 +19,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool _pushNotifications = true;
   bool _emailOffers = false;
   bool _biometricLogin = true;
-  String _selectedCurrency = 'USD (\$)';
+  String _selectedCurrency = 'INR (₹)';
 
   void _showSettingsModal() {
     showModalBottomSheet(
@@ -105,7 +105,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     trailing: DropdownButton<String>(
                       value: _selectedCurrency,
                       underline: const SizedBox(),
-                      items: ['USD (\$)', 'EUR (€)', 'GBP (£)', 'AUD (\$)']
+                      items: ['INR (₹)', 'USD (\$)', 'EUR (€)', 'GBP (£)', 'AUD (\$)']
                           .map((c) => DropdownMenuItem(value: c, child: Text(c)))
                           .toList(),
                       onChanged: (val) {
@@ -138,21 +138,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
         'dates': '20 May - 25 May, 2026',
         'status': 'Confirmed',
         'id': '#TE123456789',
-        'price': '\$1,320',
+        'price': '₹14,500',
       },
       {
         'title': 'Alpine Crest Villa',
         'dates': '12 Jan - 16 Jan, 2026',
         'status': 'Completed',
         'id': '#TE987654321',
-        'price': '\$1,240',
+        'price': '₹19,600',
       },
       {
         'title': 'Sunset Ocean Resort',
         'dates': '05 Nov - 09 Nov, 2025',
         'status': 'Completed',
         'id': '#TE555444333',
-        'price': '\$1,120',
+        'price': '₹16,800',
       },
     ];
 
